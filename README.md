@@ -1,1 +1,1 @@
-firsebase
+This GitHub repository hosts to innovative food delivery applications built using Flutter and integrated with Firebase for robust backend services. These projects combine cutting-edge mobile development with powerful cloud infrastructure to deliver seamless user experiences.
