@@ -28,12 +28,12 @@ class SharedPreferenceHelper {
 
   Future<String?> getUserId() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    return prefs.getString(userNamekey);
+    return prefs.getString(userIdkey);
   }
 
   Future<String?> getUserName() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    return prefs.getString(userIdkey);
+    return prefs.getString(userNamekey);
   }
 
   Future<String?> getUserEmail() async {

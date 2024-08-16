@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:e_commerce/pages/product_detail.dart';
 import 'package:e_commerce/services/database.dart';
 import 'package:e_commerce/widget/support_widget.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -16,7 +18,7 @@ class _CategoryproductState extends State<Categoryproduct> {
   Stream? CategoryStream;
 
   getontheload() async {
-    CategoryStream = await DatabaseMethod().getProduct(widget.category);
+    CategoryStream = await DatabaseMethod().getProducts(widget.category);
     setState(() {});
   }
 
@@ -80,15 +82,27 @@ class _CategoryproductState extends State<Categoryproduct> {
                               SizedBox(
                                 width: 30,
                               ),
-                              Container(
-                                  padding: EdgeInsets.all(5),
-                                  decoration: BoxDecoration(
-                                      color: Color(0xFFfd6f3e),
-                                      borderRadius: BorderRadius.circular(7)),
-                                  child: Icon(
-                                    Icons.add,
-                                    color: Colors.white,
-                                  ))
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => ProductDetail(
+                                              detail: ds["Detail"],
+                                              image: ds["Image"],
+                                              name: ds["Name"],
+                                              price: ds["Price"])));
+                                },
+                                child: Container(
+                                    padding: EdgeInsets.all(5),
+                                    decoration: BoxDecoration(
+                                        color: Color(0xFFfd6f3e),
+                                        borderRadius: BorderRadius.circular(7)),
+                                    child: Icon(
+                                      Icons.add,
+                                      color: Colors.white,
+                                    )),
+                              )
                             ],
                           )
                         ],
@@ -96,7 +110,7 @@ class _CategoryproductState extends State<Categoryproduct> {
                     );
                   })
               : Container();
-        });
+       });
   }
 
   @override

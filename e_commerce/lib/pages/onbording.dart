@@ -1,3 +1,4 @@
+import "package:e_commerce/pages/signup.dart";
 import "package:flutter/material.dart";
 
 class Onbording extends StatefulWidget {
@@ -17,7 +18,7 @@ class _OnbordingState extends State<Onbording> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.asset("image/headphone.PNG"),
+            Image.asset("images/headphone.PNG"),
             Padding(
               padding: const EdgeInsets.only(left: 20),
               child: Text(
@@ -39,12 +40,19 @@ class _OnbordingState extends State<Onbording> {
                   padding: EdgeInsets.all(30),
                   decoration: BoxDecoration(
                       color: Colors.black, shape: BoxShape.circle),
-                  child: Text(
-                    "Next",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20, 
-                        fontWeight: FontWeight.bold),
+
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Signup()));
+                    },
+                    child: Text(
+                      "Next",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold),
+                    ),
                   ),
                 ),
               ],
